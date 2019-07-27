@@ -28,7 +28,7 @@ class RepositoriesController: UIViewController {
     super.viewDidLoad()
     setupTableView()
     setupSearchBar()
-    accessToken = KeychainWrapper.standard.string(forKey: "accessToken")
+    setupAccessToken()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -112,6 +112,10 @@ class RepositoriesController: UIViewController {
     searchController.searchBar.delegate = self
     searchController.searchBar.placeholder = "Enter a GitHub username"
     navigationItem.hidesSearchBarWhenScrolling = true
+  }
+  
+  fileprivate func setupAccessToken() {
+    accessToken = KeychainWrapper.standard.string(forKey: "accessToken")
   }
 }
 
