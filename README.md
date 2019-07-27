@@ -28,3 +28,5 @@ which will be the cached data for next time logging to this screen.
 [GitHub API](https://developer.github.com/v3/)
 <br/>
 [serhii-londar/GithubAPI](https://github.com/serhii-londar/GithubAPI)
+<br/>
+[KeychainWrapper](https://github.com/jrendel/SwiftKeychainWrapper)
