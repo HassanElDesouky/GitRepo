@@ -15,6 +15,9 @@
 		9A796D2D22EB98D600FE30BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A796D2B22EB98D600FE30BE /* LaunchScreen.storyboard */; };
 		9A796D3822EB98D600FE30BE /* GitRepoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A796D3722EB98D600FE30BE /* GitRepoTests.swift */; };
 		9A98ACA322EBC050005C9430 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A98ACA222EBC050005C9430 /* MainController.swift */; };
+		9A9CC3E122ECA042006569A8 /* CacheModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9CC3E022ECA042006569A8 /* CacheModel.swift */; };
+		9A9CC3E322ECA264006569A8 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9CC3E222ECA264006569A8 /* Reachability.swift */; };
+		9A9CC3E522ECA943006569A8 /* UISearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9CC3E422ECA943006569A8 /* UISearchBar+Extension.swift */; };
 		9ABDB09322EC654900BA0045 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDB09122EC654900BA0045 /* KeychainItemAccessibility.swift */; };
 		9ABDB09422EC654900BA0045 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDB09222EC654900BA0045 /* KeychainWrapper.swift */; };
 		9ABDB09A22EC657E00BA0045 /* KeychainWrapperDeleteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDB09522EC657E00BA0045 /* KeychainWrapperDeleteTests.swift */; };
@@ -73,6 +76,9 @@
 		9A796D3722EB98D600FE30BE /* GitRepoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepoTests.swift; sourceTree = "<group>"; };
 		9A796D3922EB98D600FE30BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A98ACA222EBC050005C9430 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		9A9CC3E022ECA042006569A8 /* CacheModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheModel.swift; sourceTree = "<group>"; };
+		9A9CC3E222ECA264006569A8 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		9A9CC3E422ECA943006569A8 /* UISearchBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extension.swift"; sourceTree = "<group>"; };
 		9ABDB09122EC654900BA0045 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		9ABDB09222EC654900BA0045 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		9ABDB09522EC657E00BA0045 /* KeychainWrapperDeleteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapperDeleteTests.swift; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 			children = (
 				9A3C1B9E22EBB75500FA6CB0 /* Date+Extension.swift */,
 				9A3C1BA022EBB84900FA6CB0 /* String+Extension.swift */,
+				9A9CC3E422ECA943006569A8 /* UISearchBar+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -180,7 +187,7 @@
 		9A796D2122EB98D500FE30BE /* GitRepo */ = {
 			isa = PBXGroup;
 			children = (
-				9ABDB08F22EC651400BA0045 /* Resources */,
+				9ABDB08F22EC651400BA0045 /* Helper Classes */,
 				9A3C1B9D22EBB74600FA6CB0 /* Extension */,
 				9AE07E8522EBA88E008BD424 /* Controller */,
 				9AE07E8322EBA865008BD424 /* View */,
@@ -203,12 +210,13 @@
 			path = GitRepoTests;
 			sourceTree = "<group>";
 		};
-		9ABDB08F22EC651400BA0045 /* Resources */ = {
+		9ABDB08F22EC651400BA0045 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
 				9ABDB09022EC651F00BA0045 /* KeychainWrapper */,
+				9A9CC3E222ECA264006569A8 /* Reachability.swift */,
 			);
-			path = Resources;
+			path = "Helper Classes";
 			sourceTree = "<group>";
 		};
 		9ABDB09022EC651F00BA0045 /* KeychainWrapper */ = {
@@ -252,6 +260,7 @@
 				9AE07E8122EBA79D008BD424 /* RepositoriesAPI */,
 				9AE07E5D22EB9C52008BD424 /* Auth */,
 				9AE07E5F22EB9D1C008BD424 /* GithubAPI.swift */,
+				9A9CC3E022ECA042006569A8 /* CacheModel.swift */,
 			);
 			path = "API Model";
 			sourceTree = "<group>";
@@ -526,6 +535,7 @@
 				9AE07E5A22EB9C38008BD424 /* Basic.swift in Sources */,
 				9AE07E7A22EB9D7E008BD424 /* RepositoryPermission.swift in Sources */,
 				9A3C1B9F22EBB75500FA6CB0 /* Date+Extension.swift in Sources */,
+				9A9CC3E322ECA264006569A8 /* Reachability.swift in Sources */,
 				9AE07E6222EB9D1C008BD424 /* Authentication.swift in Sources */,
 				9AE07E5822EB9C38008BD424 /* Credentials.swift in Sources */,
 				9ABDB09422EC654900BA0045 /* KeychainWrapper.swift in Sources */,
@@ -537,8 +547,10 @@
 				9AE07E5322EB9B21008BD424 /* RepositoriesController.swift in Sources */,
 				9AE07E7B22EB9D7E008BD424 /* RepositoryReponse.swift in Sources */,
 				9A3C1BA122EBB84900FA6CB0 /* String+Extension.swift in Sources */,
+				9A9CC3E522ECA943006569A8 /* UISearchBar+Extension.swift in Sources */,
 				9AE07E7722EB9D7E008BD424 /* RepositoryLicense.swift in Sources */,
 				9AE07E5922EB9C38008BD424 /* AccessToken.swift in Sources */,
+				9A9CC3E122ECA042006569A8 /* CacheModel.swift in Sources */,
 				9A98ACA322EBC050005C9430 /* MainController.swift in Sources */,
 				9AE07E6622EB9D57008BD424 /* GithubLoginAPI.swift in Sources */,
 				9AE07E6122EB9D1C008BD424 /* GithubAPI.swift in Sources */,
