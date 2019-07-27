@@ -15,10 +15,11 @@ class RepositoriesController: UIViewController {
   let clientSecret = "add7ac2abdc6e81fa7ee19c824907a55f0877bb9"
   let redirectURL = "https://github.com/serhii-londar/GithubIssues"
   let cellId = "cellId"
+  let searchController = UISearchController(searchResultsController: nil)
   var accessToken: String?
   var loginVC: GithubLoginVC! = nil
   var repositories: [RepositoryResponse] = [RepositoryResponse]()
-  
+
   // MARK: - Outlets
   @IBOutlet weak var tableView: UITableView!
   
@@ -26,11 +27,16 @@ class RepositoriesController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupTableView()
+    setupSearchBar()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    self.perform(#selector(handleLogin), with: nil, afterDelay: 1)
+    if accessToken == nil {
+      self.perform(#selector(handleLogin), with: nil, afterDelay: 1)
+    } else {
+      loadRepositories()
+    }
   }
   
   // MARK: - Methods
@@ -45,27 +51,31 @@ class RepositoriesController: UIViewController {
     })
   }
   
+  private func loadRepositories(username: String) {
+    guard let accessToken = accessToken else { return }
+    //Load someone else's public repos
+    RepositoriesAPI(authentication: TokenAuthentication(token: accessToken)).repositories(user: username) { (response, err) in
+      if let response = response {
+        self.repositories = response
+        DispatchQueue.main.async {
+          self.tableView.reloadData()
+          self.setupNavigationItem()
+        }
+      } else {
+        print(err ?? "")
+      }
+    }
+  }
+  
   private func loadRepositories() {
     guard let accessToken = accessToken else { return }
-  
-    // Load someone else's public repos
-//    RepositoriesAPI(authentication: TokenAuthentication(token: accessToken)).repositories(user: "johnsundell") { (response, err) in
-//      if let response = response {
-//        self.repositories = response
-//        DispatchQueue.main.async {
-//          self.tableView.reloadData()
-//        }
-//      } else {
-//        print(err ?? "")
-//      }
-//    }
-    
     // Load the authentecated user (all) repos
     RepositoriesAPI(authentication: TokenAuthentication(token: accessToken)).repositories { (response, error) in
       if let response = response {
         self.repositories = response
         DispatchQueue.main.async {
           self.tableView.reloadData()
+          self.setupNavigationItem()
         }
       } else {
         print(error ?? "")
@@ -79,6 +89,17 @@ class RepositoriesController: UIViewController {
     tableView.register(nib, forCellReuseIdentifier: cellId)
     tableView.dataSource = self
     tableView.delegate = self
+  }
+  
+  fileprivate func setupNavigationItem() {
+    navigationItem.title = "\(repositories[0].owner?.login ?? "") Repositories"
+  }
+  
+  fileprivate func setupSearchBar() {
+    navigationItem.searchController = searchController
+    searchController.searchBar.delegate = self
+    searchController.searchBar.placeholder = "Enter a GitHub username"
+    navigationItem.hidesSearchBarWhenScrolling = true
   }
 }
 
@@ -107,5 +128,13 @@ extension RepositoriesController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 150
+  }
+}
+
+// MARK: - UISearchBar Delegate
+extension RepositoriesController: UISearchBarDelegate {
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    loadRepositories(username: searchBar.text!)
+    searchController.dismiss(animated: true, completion: nil)
   }
 }

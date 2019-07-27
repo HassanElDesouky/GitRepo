@@ -14,6 +14,7 @@
 		9A796D2A22EB98D600FE30BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A796D2922EB98D600FE30BE /* Assets.xcassets */; };
 		9A796D2D22EB98D600FE30BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A796D2B22EB98D600FE30BE /* LaunchScreen.storyboard */; };
 		9A796D3822EB98D600FE30BE /* GitRepoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A796D3722EB98D600FE30BE /* GitRepoTests.swift */; };
+		9A98ACA322EBC050005C9430 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A98ACA222EBC050005C9430 /* MainController.swift */; };
 		9AE07E5322EB9B21008BD424 /* RepositoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE07E5222EB9B21008BD424 /* RepositoriesController.swift */; };
 		9AE07E5822EB9C38008BD424 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE07E5422EB9C38008BD424 /* Credentials.swift */; };
 		9AE07E5922EB9C38008BD424 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE07E5522EB9C38008BD424 /* AccessToken.swift */; };
@@ -64,6 +65,7 @@
 		9A796D3322EB98D600FE30BE /* GitRepoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitRepoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A796D3722EB98D600FE30BE /* GitRepoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepoTests.swift; sourceTree = "<group>"; };
 		9A796D3922EB98D600FE30BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A98ACA222EBC050005C9430 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		9AE07E5222EB9B21008BD424 /* RepositoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesController.swift; sourceTree = "<group>"; };
 		9AE07E5422EB9C38008BD424 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		9AE07E5522EB9C38008BD424 /* AccessToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				9AE07E5222EB9B21008BD424 /* RepositoriesController.swift */,
+				9A98ACA222EBC050005C9430 /* MainController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				9A3C1BA122EBB84900FA6CB0 /* String+Extension.swift in Sources */,
 				9AE07E7722EB9D7E008BD424 /* RepositoryLicense.swift in Sources */,
 				9AE07E5922EB9C38008BD424 /* AccessToken.swift in Sources */,
+				9A98ACA322EBC050005C9430 /* MainController.swift in Sources */,
 				9AE07E6622EB9D57008BD424 /* GithubLoginAPI.swift in Sources */,
 				9AE07E6122EB9D1C008BD424 /* GithubAPI.swift in Sources */,
 				9AE07E5B22EB9C38008BD424 /* Token.swift in Sources */,
@@ -660,7 +664,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UC8UZFR7L3;
 				INFOPLIST_FILE = GitRepo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -680,7 +684,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UC8UZFR7L3;
 				INFOPLIST_FILE = GitRepo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
