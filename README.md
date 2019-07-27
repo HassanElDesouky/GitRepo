@@ -10,6 +10,7 @@ With GitRepo you can login to your GitHub account and view all of your public an
 - [x] Pressing on each card should open the repository in web browser.
 - [x] The list should support paginations, the more the user is scrolling, the more the list
 should be retrieving data.
+- [x] Save access token with [KeychainWrapper](https://github.com/jrendel/SwiftKeychainWrapper) so user dosen't has to login every time the app opens.
 
 ## Todo/ Improvments
 * Screen should load to already cached data, then be updated with current live data,
