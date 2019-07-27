@@ -12,7 +12,7 @@
         <!--GitRepo-->
         <scene sceneID="zh9-UZ-4SI">
             <objects>
-                <viewController id="Ikg-n7-7aO" customClass="MainController" customModule="GitRepo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainController" id="Ikg-n7-7aO" customClass="MainController" customModule="GitRepo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q5F-yX-AE6"/>
                         <viewControllerLayoutGuide type="bottom" id="KXI-bg-fZN"/>
@@ -86,7 +86,13 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="DIg-GM-rRs"/>
+                    <navigationItem key="navigationItem" title="Title" id="DIg-GM-rRs">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="9Wi-sW-Yy3">
+                            <connections>
+                                <action selector="handleLogout:" destination="vXZ-lx-hvc" id="KLV-um-q5e"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="UbO-DW-qav" id="NDB-ri-WrN"/>

@@ -28,6 +28,7 @@ class RepositoriesController: UIViewController {
     super.viewDidLoad()
     setupTableView()
     setupSearchBar()
+    accessToken = KeychainWrapper.standard.string(forKey: "accessToken")
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -41,10 +42,21 @@ class RepositoriesController: UIViewController {
   
   // MARK: - Methods
   // MARK: Private Methods
+  @IBAction func handleLogout(_ sender: Any) {
+    // Remove keychain objects.
+    KeychainWrapper.standard.removeAllKeys()
+    // Go to login page.
+    let mainController = storyboard?.instantiateViewController(withIdentifier: "MainController") as! MainController
+    let appDelegate = UIApplication.shared.delegate
+    appDelegate?.window??.rootViewController = UINavigationController(rootViewController: mainController)
+  }
+  
   @objc private func handleLogin() {
     self.loginVC =  GithubLoginVC(clientID: clientID, clientSecret: clientSecret, redirectURL: redirectURL)
     self.loginVC.login(withScopes: [.repo], allowSignup: true, completion: { accessToken in
       self.accessToken = accessToken
+      // Save access token to Keychain.
+      let saveAccessToken: Bool = KeychainWrapper.standard.set(accessToken, forKey: "accessToken")
       self.loadRepositories()
     }, error: { error in
       print(error.localizedDescription)
