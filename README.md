@@ -11,10 +11,10 @@ With GitRepo you can login to your GitHub account and view all of your public an
 - [x] The list should support paginations, the more the user is scrolling, the more the list
 should be retrieving data.
 - [x] Save access token with [KeychainWrapper](https://github.com/jrendel/SwiftKeychainWrapper) so user dosen't has to login every time the app opens.
+- [x] Screen should load to already cached data, then be updated with current live data,
+which will be the cached data for next time logging to this screen.
 
 ## Todo/ Improvments
-* Screen should load to already cached data, then be updated with current live data,
-which will be the cached data for next time logging to this screen.
 * Improve the app archticture.
 * Write UnitTests.
 
